@@ -49,12 +49,14 @@ public class CardTrick {
                 found = true;
             }
         }
+        
         //Then report the result here
         if (found) {
             System.out.println(String.format("%d of %s is in the magic hand!", userValue, userCard.getSuit()));
         } else {
             System.out.println(String.format("Sorry, your card is not in the magic hand.", userValue, userCard.getSuit()));
         }
+
         // add one luckcard hard code 2,clubs
     }
 
