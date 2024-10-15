@@ -13,7 +13,7 @@ package card;
  * add your name as a modifier.
  * @author srinivsi
  */
-public class Card {
+public class Card { // High cohesion - One entity only Card, only one thing, one job
 
    private String suit; //clubs, spades, diamonds, hearts
    private int value;//1-13
@@ -22,7 +22,13 @@ public class Card {
     /**
      * @return the suit
      */
-    public String getSuit() {
+   
+//   private Value value;
+//   private Suit suit;    
+//   public enum Suit {HEARTS, CLUBS, SPADES, DIAMONDS};
+//   public enum Value {ACE,TWO,THREE,FOUR,FIVE,SIX,SEVEN,EIGHT,NINE,TEN,JACK,QUEEN,KING,JOKER}
+   
+   public String getSuit() {
         return suit;
     }
 

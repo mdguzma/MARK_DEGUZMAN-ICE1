@@ -4,7 +4,6 @@
  */
 package card;
 
-import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -14,9 +13,12 @@ import java.util.Scanner;
  * the user's card. To be used as starting code in ICE 1
  *
  * @author srinivsi
+ * @Student: Mark De Guzman 991754335
  */
-public class CardTrick {
-
+public class CardTrick { // Not High cohesion -> has more than one job, 
+    // interacts with both input and output with the user
+    //1. Generates 7 cards
+    //2. Matching cards print + user interaction
     public static void main(String[] args) {
         Card[] magicHand = new Card[7];
         Random rand = new Random();
@@ -28,19 +30,13 @@ public class CardTrick {
             magicHand[i] = c;
         }
         
-        //insert code to ask the user for Card value and suit, create their card
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Enter a card value (1-13): ");
-        int userValue = scanner.nextInt();
+        Card luckCard = new Card();
+        luckCard.setSuit("Diamonds");
+        luckCard.setValue(7);
+        magicHand[magicHand.length - 1] = luckCard;
 
-        System.out.print("Enter a suit (0-3 where 0=Hearts, 1=Diamonds, 2=Clubs, 3=Spades): ");
-        int userSuitIndex = scanner.nextInt();
-
-        // Create player card
-        Card userCard = new Card();
-        userCard.setValue(userValue);
-        userCard.setSuit(Card.SUITS[userSuitIndex]);
-
+        Card userCard = luckCard;
+        
         // and search magicHand here
         boolean found = false;
         for (Card card : magicHand) {
@@ -52,12 +48,10 @@ public class CardTrick {
         
         //Then report the result here
         if (found) {
-            System.out.println(String.format("%d of %s is in the magic hand!", userValue, userCard.getSuit()));
+            System.out.println(String.format("%d of %s is in the magic hand!", userCard.getValue(), userCard.getSuit()));
         } else {
-            System.out.println(String.format("Sorry, your card is not in the magic hand.", userValue, userCard.getSuit()));
+            System.out.println(String.format("Sorry, your card is not in the magic hand.", userCard.getValue(), userCard.getSuit()));
         }
 
-        // add one luckcard hard code 2,clubs
     }
-
 }
